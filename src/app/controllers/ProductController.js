@@ -12,7 +12,7 @@ class ProductController {
     try{
       schema.validedSync(request.body, { abortEarly : false })
     } catch (err) {
-      return response.status(400).json({error : err.errors})
+      return response.status(400).JSON({error : err.errors})
     }
 
     const { filename: path } = request.file
@@ -31,7 +31,7 @@ class ProductController {
   async index(request, response){
     const products = await Product.findAll()
 
-    return response.json(products)
+    return response.JSON(products)
   }
 }
 

@@ -12,7 +12,7 @@ class SessionController{
     const isValided = await schema.isValid(request.body)
 
     const emailOrPasswordInCorrect = () => {
-      return response.status(401).json({erro: "make sure your email or password are correct"})
+      return response.status(401).JSON({erro: "make sure your email or password are correct"})
     }
 
     if(!isValided){
@@ -37,7 +37,7 @@ class SessionController{
      return  emailOrPasswordInCorrect()
     }
 
-    return response.json({id: user.id, 
+    return response.JSON({id: user.id, 
       name: user.name, 
       email, 
       admin : user.admin, 
@@ -45,9 +45,6 @@ class SessionController{
         expiresIn : authConfig.expiresIn
       }),
     })
-
-    secre
-
   }
 }
 

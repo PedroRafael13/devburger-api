@@ -13,7 +13,7 @@ function authMiddleware(request, response, next){
 
   try{
     Jwt.verify(token, authConfig.secreat, (err, decoded) => {
-      if(!token){
+      if(err){
         throw new Error()
       }
       
